@@ -31,3 +31,28 @@ Python code for a Raspberry Pi 4 to read temperature from a **DS18B20** sensor a
 2. Install dependencies:
    ```bash
    pip3 install -r requirements.txt
+
+## Repository Structure
+- main.py — entry point (recommended)
+- temperature.py — DS18B20 read utilities / experiments
+- requirements.txt — dependencies
+
+## Configuration
+**Adjust in code (or convert to CLI/env vars if desired):**
+- sampling interval
+- temperature threshold
+- GPIO pin assignment
+
+## Troubleshooting
+**DS18B20 not detected:**
+- verify 1-Wire is enabled
+- check wiring and ground
+- confirm sensor shows up under /sys/bus/w1/devices/
+
+**GPIO output not switching:**
+- verify pin numbering mode (ensure numbering consistency with BCM vs BOARD)
+
+## Credits
+- Clement Wu (EE, UC Irvine) - Embedded system implementation and electrical integration
+- Jerome Foronda (ME, San Jose State University) - Component sourcing and procurement, mechanical prototyping
+- Isabella Greiner (ME, UC Davis) & Gabriella Acosta (ME, San Jose State University) - Physical layout design and implementation
