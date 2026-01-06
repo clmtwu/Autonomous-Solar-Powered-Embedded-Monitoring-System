@@ -1,21 +1,33 @@
-# ENGI - 130 Final Project
-## Main Author: Clement Wu (EE @ UCI)
-## Date: 05/13/2025
-### Team Members: Gabriella Acosta (ME @ SJSU), Jerome Foronda (ME @ SJSU), Isabela Greiner (ME @ UCD)
+# Autonomous Solar-Powered Embedded Monitoring System (Raspberry Pi)
 
-This is our code for the DS18B20 Temperature Sensor on the Raspberry Pi 4. Please see requirements.txt for the requirements to run this program on your local raspberry pi machine. No custom libraries were used for ease of replicability (and also because I don't have enough experience in Python to properly utilize them)
+Python code for a Raspberry Pi 4 to read temperature from a **DS18B20** sensor and trigger GPIO outputs (e.g., alarm/indicator) based on configurable thresholds. This repository contains the embedded monitoring component used within a larger off-grid, solar-powered demonstration system.
 
-In development order from latest to earliest (that ran on our Pi):
+## Key Features
+- Reads DS18B20 temperature via 1-Wire interface
+- Logs/prints temperature readings at a fixed interval
+- Triggers GPIO outputs (siren/light) when thresholds are exceeded
+- Minimal setup: dependencies listed in `requirements.txt`
 
-jerome.py\
-final.py\
-temperaturev2.py\
-temperature.py
+## Hardware
+- Raspberry Pi 4
+- DS18B20 temperature sensor (1-Wire)
+- Optional: buzzer/siren and/or indicator LED(s)
+- Jumper wires / breadboard
 
-You only need to run jerome.py to execute the full program!
+## Wiring (Raspberry Pi)
+**DS18B20**
+- VDD → 3.3V (Pin 1)
+- GND → GND (Pin 9)
+- DATA → 1-Wire GPIO (set in code)
 
-## References
-Physical/Wiring Pin 1: Powering the temperature probe with 3.3V\
-Wiring Pin 9: Generic Ground Pin, feel free to use any other ground pin (25, 39, etc.)\
-Physical Pin 17 / Wiring Pin 11: Pin to turn on the siren and lights\
-Wiring Pin 25: General Ground Pin for siren and lights (see line 18 for reference)
+**Optional outputs**
+- GPIO output pin → siren/light control circuit input
+- Output ground → GND
+
+> Note: If you are switching a siren/light, use an appropriate driver (transistor/MOSFET/relay) and do not drive loads directly from the GPIO.
+
+## Software Setup
+1. Enable 1-Wire interface on the Raspberry Pi.
+2. Install dependencies:
+   ```bash
+   pip3 install -r requirements.txt
