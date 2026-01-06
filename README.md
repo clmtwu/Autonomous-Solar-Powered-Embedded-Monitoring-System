@@ -2,7 +2,7 @@
 
 Python code for a Raspberry Pi 4 to read temperature from a **DS18B20** sensor and trigger GPIO outputs (e.g., alarm/indicator) based on configurable thresholds. This repository contains the embedded monitoring component used within a larger off-grid, solar-powered demonstration system.
 
-## Key Features
+## Features
 - Reads DS18B20 temperature via 1-Wire interface
 - Logs/prints temperature readings at a fixed interval
 - Triggers GPIO outputs (siren/light) when thresholds are exceeded
@@ -11,7 +11,7 @@ Python code for a Raspberry Pi 4 to read temperature from a **DS18B20** sensor a
 ## Hardware
 - Raspberry Pi 4
 - DS18B20 temperature sensor (1-Wire)
-- Optional: buzzer/siren and/or indicator LED(s)
+- Buzzer/siren and red indicator LED
 - Jumper wires / breadboard
 
 ## Wiring (Raspberry Pi)
@@ -24,7 +24,7 @@ Python code for a Raspberry Pi 4 to read temperature from a **DS18B20** sensor a
 - GPIO output pin → siren/light control circuit input
 - Output ground → GND
 
-> Note: If you are switching a siren/light, use an appropriate driver (transistor/MOSFET/relay) and do not drive loads directly from the GPIO.
+> Note: If you are switching a siren/light, do not drive loads directly from the GPIO as it will not work.
 
 ## Software Setup
 1. Enable 1-Wire interface on the Raspberry Pi.
